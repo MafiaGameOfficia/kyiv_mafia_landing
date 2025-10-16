@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Київська Мафія — Landing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <div class="hero-left">
+        <h1>КИЇВСЬКА<br>МАФІЯ</h1>
+        <p class="lead">Україномовна мафія 24/7 — грай у живому голосовому чаті, зустрічай людей з усього світу.</p>
+        <button id="joinBtn" class="cta">Долучитись у чат</button>
+      </div>
+      <div class="hero-right">
+        <div class="chars">
+          <img src="images/characters.jpg" alt="Ілюстрація персонажів"/>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="roles">
+        <h2>Ролі</h2>
+        <div class="roles-grid" id="rolesGrid"></div>
+        <div class="more-roles"><button id="showAllRoles">Показати всі ролі</button></div>
+      </section>
+
+      <section class="two-col">
+        <div class="club">
+          <h3>Закритий клуб</h3>
+          <p class="muted">Заповніть форму, щоб отримати запрошення у закритий ігровий чат (посилання відкриється у Telegram).</p>
+          <label for="username">Telegram @username</label>
+          <div class="input">
+            <input id="username" type="text" placeholder="@yourusername" />
+            <button class="btn" id="requestInvite">Отримати запрошення</button>
+          </div>
+          <p id="inviteStatus" class="muted small"></p>
+        </div>
+
+        <div class="club live">
+          <div class="b">Живе спілкування</div>
+          <p class="muted">Ми не просто граємо — ми говоримо, сперечаємось, сміємось. Голосовий та відеочат працюють 24/7. До нас приєднуються гравці з усіх куточків світу, але ми — україномовна спільнота.</p>
+
+          <strong>Що в нас є:</strong>
+          <ul class="muted">
+            <li>Голосовий та відеочат 24/7</li>
+            <li>Нові знайомства</li>
+            <li>Керування ролями та автоматичні ночі</li>
+            <li>Публічні трансляції ключових моментів</li>
+            <li>Івенти з призами</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© Київська Мафія — Гра де мафія оживає</div>
+      <div><a id="tgLink" href="https://t.me/+HhW9yhiVMtRiZDM6" target="_blank" rel="noopener">Приєднатись у Telegram</a></div>
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="head">
+        <div class="icon" id="modalIcon">R</div>
+        <div>
+          <h3 id="modalTitle"></h3>
+          <p id="modalSubtitle" class="muted"></p>
+        </div>
+        <button class="close" id="closeModal">✕</button>
+      </div>
+      <div class="body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
