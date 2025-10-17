@@ -1,82 +1,116 @@
 <!doctype html>
 <html lang="uk">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Київська Мафія — Landing</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="container">
     <header class="hero">
       <div class="hero-left">
         <h1>КИЇВСЬКА<br>МАФІЯ</h1>
         <p class="lead">Україномовна мафія 24/7 — грай у живому голосовому чаті, зустрічай людей з усього світу.</p>
-        <button id="joinBtn" class="cta">Долучитись у чат</button>
+        <div class="hero-ctas">
+          <button id="joinBtn" class="cta">Долучитись у чат</button>
+        </div>
       </div>
+
       <div class="hero-right">
         <div class="chars">
-          <img src="images/characters.jpg" alt="Ілюстрація персонажів"/>
+          <img src="images/characters1.jpg" alt="Ілюстрація персонажів" />
         </div>
       </div>
     </header>
 
+    <!-- фіксоване меню: три рисочки у правому верхньому кутку -->
+    <div class="floating-menu" id="floatingMenu" aria-haspopup="true">
+      <button id="menuBtn" class="menu-btn" aria-expanded="false" aria-label="Відкрити меню">≡</button>
+      <nav class="menu-dropdown" id="menuDropdown" role="menu" aria-hidden="true">
+        <button role="menuitem" id="menuRoles">Ролі</button>
+        <button role="menuitem" id="menuTournament">Турнір</button>
+        <button role="menuitem" id="menuRules">Правила</button>
+      </nav>
+    </div>
+
     <main>
-      <section class="roles">
-        <h2>Ролі</h2>
-        <div class="roles-grid" id="rolesGrid"></div>
-        <div class="more-roles"><button id="showAllRoles">Показати всі ролі</button></div>
-      </section>
-
-      <section class="two-col">
-        <div class="club">
-          <h3>Закритий клуб</h3>
-          <p class="muted">Заповніть форму, щоб отримати запрошення у закритий ігровий чат (посилання відкриється у Telegram).</p>
-          <label for="username">Telegram @username</label>
-          <div class="input">
-            <input id="username" type="text" placeholder="@yourusername" />
-            <button class="btn" id="requestInvite">Отримати запрошення</button>
+      <!-- ТУРНІР — приваблива секція -->
+      <section class="tournament-section" id="tournamentSection">
+        <div class="tournament-card">
+          <div class="tournament-header">
+            <h2>Турнір — 25 учасників</h2>
+            <div class="prize">1 місце — <strong>1000 грн</strong> · 2 місце — <strong>500 грн</strong> · 3 місце —
+              <strong>250 грн</strong></div>
           </div>
-          <p id="inviteStatus" class="muted small"></p>
-        </div>
 
-        <div class="club live">
-          <div class="b">Живе спілкування</div>
-          <p class="muted">Ми не просто граємо — ми говоримо, сперечаємось, сміємось. Голосовий та відеочат працюють 24/7. До нас приєднуються гравці з усіх куточків світу, але ми — україномовна спільнота.</p>
+          <p class="muted">Стартовий внесок: <strong>100 грн</strong>. Дата: <span id="tournamentDate">16.10.2025</span>
+            </p>
 
-          <strong>Що в нас є:</strong>
-          <ul class="muted">
-            <li>Голосовий та відеочат 24/7</li>
-            <li>Нові знайомства</li>
-            <li>Керування ролями та автоматичні ночі</li>
-            <li>Публічні трансляції ключових моментів</li>
-            <li>Івенти з призами</li>
-          </ul>
+          <div class="tournament-cta">
+            <button class="btn outline" id="readRulesBtn">Прочитати умови та правила</button>
+            <button class="btn primary" id="joinTournamentBtn">Долучитися до турніру</button>
+          </div>
+
+          <div class="tournament-meta">
+            <div class="participants">Учасники: <span id="playersCount">0</span>/25</div>
+            <ul id="playersList" class="players-list muted"></ul>
+            <div class="manage-row">
+              <button id="adminTournamentBtn" class="btn admin">Керування турніром</button>
+              <div class="muted small">Для доступу потрібен код адміністратора.</div>
+            </div>
+
+            </div>
+          </div>
         </div>
       </section>
+
+      <!-- Секція скріншотів -->
+      <section class="screens-section" id="screensSection">
+        <h2>Скріншоти ігор</h2>
+        <div class="phone-carousel" id="phoneCarousel">
+          <div class="phone-mockup">
+            <div class="screen" id="carouselImage"></div>
+          </div>
+          <div class="carousel-controls">
+            <button id="prevScreen" class="icon-btn small">◀</button>
+            <button id="nextScreen" class="icon-btn small">▶</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- маленьке прев'ю ролей (видалено — ролі доступні тільки через меню) -->
     </main>
 
     <footer>
       <div>© Київська Мафія — Гра де мафія оживає</div>
-      <div><a id="tgLink" href="https://t.me/+HhW9yhiVMtRiZDM6" target="_blank" rel="noopener">Приєднатись у Telegram</a></div>
+      <div><a id="tgLink" href="https://t.me/+HhW9yhiVMtRiZDM6" target="_blank" rel="noopener">Приєднатись у
+          Telegram</a></div>
     </footer>
   </div>
 
-  <!-- Modal -->
-  <div class="modal-backdrop" id="modalBackdrop">
-    <div class="modal" role="dialog" aria-modal="true">
+  <!-- Offcanvas: ролі -->
+  <aside class="panel-roles" id="panelRoles" aria-hidden="true">
+    <button class="close-panel" id="closePanelRoles" aria-label="Закрити">✕</button>
+    <h2>Ролі</h2>
+    <div class="roles-grid" id="rolesGrid"></div>
+  </aside>
+
+  <!-- Modal: правила / умови / підтвердження / модаль турніру -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" id="modal">
       <div class="head">
-        <div class="icon" id="modalIcon">R</div>
-        <div>
-          <h3 id="modalTitle"></h3>
-          <p id="modalSubtitle" class="muted"></p>
-        </div>
-        <button class="close" id="closeModal">✕</button>
+        <h3 id="modalTitle"></h3>
+        <button class="close" id="closeModal" aria-label="Закрити модал">✕</button>
       </div>
       <div class="body" id="modalBody"></div>
+      <div class="modal-actions" id="modalActions"></div>
     </div>
   </div>
 
   <script src="script.js"></script>
 </body>
+
 </html>

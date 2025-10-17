@@ -1,0 +1,45 @@
+Мафія / Mafia
+
+Дон – Don
+
+Мафія – Mafioso
+
+Адвокат – Lawyer
+
+Баламут – Troublemaker
+
+Домініка – Dominika
+
+
+Мирні / Villagers
+
+
+Мирний житель – Villager
+
+Слідчий – Investigator
+
+Сержант – Sergeant
+
++Лікар – Doctor
+
++Повія – Courtesan
+
++Волоцюга – Tramp
+
++Камікадзе – Kamikaze
+
++Щасливчик – Lucky
+
++Журналістка – Journalist
+
+
+Нейтральні / Neutral
+
+
+Самогубець – Suicider
+
+Маніяк – Maniac
+
+Чаклун – Sorcerer
+
+Джек-Різник – Jack the Ripper
